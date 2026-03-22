@@ -1,41 +1,40 @@
 <template>
-  <footer
-    class="absolute bottom-0 w-full py-6 text-center text-gray-400 text-sm"
-  >
-    <div class="flex gap-6 justify-center items-center">
-      <a
-        href="https://github.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="hover:text-white transition"
-      >
-        <Icon name="github" />
-      </a>
-      <button
-        class="hover:text-white transition cursor-pointer"
-        @click="revealEmail"
-      >
-        <Icon name="envelope" />
-      </button>
+  <footer class="w-full bg-zinc-800 py-2 text-center text-gray-400 text-sm">
+    <div class="flex w-full justify-between items-center px-4">
+      <p>© 2026 Trevor Gaffney. All rights reserved.</p>
+      <div class="flex gap-4 justify-center items-center">
+        <a
+          href="https://github.com/tgaffer52"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-white transition text-xl"
+        >
+          <Icon name="uil:github" />
+        </a>
+        <button
+          class="hover:text-white transition cursor-pointer text-xl"
+          @click="sendEmail"
+        >
+          <Icon name="uil:envelope" />
+        </button>
+      </div>
     </div>
   </footer>
 </template>
 
 <script setup lang="ts">
-const emailDisplay = ref("Email");
-
 // Obfuscated email (ROT13 encoded)
-const obfuscatedEmail = "grirbe@rknzcyr.pbz"; // Example: trevor@example.com
+const obfuscatedEmail = "gtnssre52@tznvy.pbz";
 
 function rot13(str: string): string {
   return str.replace(/[a-zA-Z]/g, (c) => {
-    return String.fromCharCode(
-      (c <= "Z" ? 90 : 122) >= (c = c.charCodeAt(0) + 13) ? c : c - 26,
-    );
+    const code = c.charCodeAt(0);
+    const base = code <= 90 ? 65 : 97;
+    return String.fromCharCode(base + ((code - base + 13) % 26));
   });
 }
 
-function revealEmail() {
+function sendEmail() {
   const email = rot13(obfuscatedEmail);
   window.location.href = `mailto:${email}`;
 }

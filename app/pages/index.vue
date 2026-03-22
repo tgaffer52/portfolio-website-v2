@@ -1,5 +1,7 @@
 <template>
-  <div class="relative w-full h-screen overflow-hidden bg-black">
+  <div
+    class="relative w-full min-h-[calc(100dvh-44px)] overflow-hidden 60pxbg-black"
+  >
     <!-- Background canvas for swirls -->
     <canvas ref="canvas" class="absolute inset-0 w-full h-full" />
 
@@ -8,73 +10,95 @@
       <div class="hero-content">
         <h1 class="hero-title mb-4">Trevor Gaffney</h1>
         <p class="hero-subtitle mb-8">Full Stack Software Engineer</p>
-        <div class="p-8 bg-zinc-900/80 rounded-lg">
-          <table class="mx-auto text-gray-200">
-            <thead>
-              <tr>
-                <th>Design</th>
-                <th>Front-End</th>
-                <th>Back-End</th>
-                <th>Database</th>
-                <th>Cloud Computing</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <!-- Design -->
-                <td>Figma</td>
-                <!-- Front-End -->
-                <td>Vue.js / Nuxt.js</td>
-                <!-- Back-End -->
-                <td>Node.js</td>
-                <!-- Database -->
-                <td>PostgreSQL</td>
-                <!-- Cloud Computing -->
-                <td>AWS</td>
-              </tr>
-              <tr>
-                <!-- Design -->
-                <td />
-                <!-- Front-End -->
-                <td>React.js / Next.js</td>
-                <!-- Back-End -->
-                <td>Python</td>
-                <!-- Database -->
-                <td>MySQL</td>
-                <!-- Cloud Computing -->
-                <td>Azure</td>
-              </tr>
-              <tr>
-                <!-- Design -->
-                <td />
-                <!-- Front-End -->
-                <td>Tailwind CSS</td>
-                <!-- Back-End -->
-                <td>FastAPI</td>
-                <!-- Database -->
-                <td>DyanmoDB</td>
-                <!-- Cloud Computing -->
-                <td>Terraform</td>
-              </tr>
-              <tr>
-                <!-- Design -->
-                <td />
-                <!-- Front-End -->
-                <td>Material UI</td>
-                <!-- Back-End -->
-                <td>MySQLAlchemy</td>
-                <!-- Database -->
-                <td />
-                <!-- Cloud Computing -->
-                <td />
-              </tr>
-            </tbody>
-          </table>
+        <div class="grid grid-cols-5 gap-4 px-10">
+          <!-- Front-end -->
+          <div class="skill-module col-span-3 skill-module-1">
+            <h2 class="skill-module-header">Front-End</h2>
+            <div class="skill-list">
+              <div class="skill-item">
+                <Icon name="devicon:vuejs" />
+                Vue.js
+              </div>
+              <div class="skill-item">
+                <Icon name="devicon:nuxt" />
+                Nuxt.js
+              </div>
+              <div class="skill-item">
+                <Icon name="devicon:react" />
+                React
+              </div>
+              <div class="skill-item">
+                <Icon name="devicon:nextjs" />
+                Next.js
+              </div>
+              <div class="skill-item">
+                <Icon name="devicon:tailwindcss" />
+                Tailwind CSS
+              </div>
+            </div>
+          </div>
+          <!-- Back-end -->
+          <div class="skill-module col-span-2 skill-module-2">
+            <h2 class="skill-module-header">Back-End</h2>
+            <div class="skill-list">
+              <div class="skill-item">
+                <Icon name="devicon:nodejs" />
+                Node.js
+              </div>
+              <div class="skill-item">
+                <Icon name="devicon:python" />
+                Python
+              </div>
+              <div class="skill-item">
+                <Icon name="devicon:fastapi" />
+                FastAPI
+              </div>
+              <div class="skill-item">
+                <Icon name="devicon:php" />
+                PHP
+              </div>
+            </div>
+          </div>
+          <!-- Design -->
+          <div class="skill-module skill-module-3">
+            <h2 class="skill-module-header">Design</h2>
+            <div class="skill-list">
+              <div class="skill-item">
+                <Icon name="logos:figma" />
+                figma
+              </div>
+            </div>
+          </div>
+          <!-- Database -->
+          <div class="skill-module col-span-2 skill-module-4">
+            <h2 class="skill-module-header">Database</h2>
+            <div class="skill-list">
+              <div class="skill-item">
+                <Icon name="devicon:mysql" />
+                MySQL
+              </div>
+              <div class="skill-item">
+                <Icon name="devicon:postgresql" />
+                PostgreSQL
+              </div>
+            </div>
+          </div>
+          <!-- Cloud -->
+          <div class="skill-module col-span-2 skill-module-5">
+            <h2 class="skill-module-header">Cloud</h2>
+            <div class="skill-list">
+              <div class="skill-item">
+                <Icon name="skill-icons:aws-light" />
+                AWS
+              </div>
+              <div class="skill-item">
+                <Icon name="devicon:azure" />
+                Azure
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-
-      <!-- Footer -->
-      <Footer />
     </div>
   </div>
 </template>
@@ -109,7 +133,46 @@ onMounted(async () => {
 }
 
 canvas {
-  animation: fadeIn 5.5s;
+  animation: fadeIn 5s ease-in forwards;
+}
+
+.skill-module {
+  @apply px-8 py-4 bg-zinc-900/80 rounded-lg;
+  animation: fadeIn 1.5s ease-in forwards;
+  opacity: 0;
+}
+
+.skill-module-1 {
+  animation-delay: 0s;
+}
+
+.skill-module-2 {
+  animation-delay: 0.3s;
+}
+
+.skill-module-3 {
+  animation-delay: 0.6s;
+}
+
+.skill-module-4 {
+  animation-delay: 0.9s;
+}
+
+.skill-module-5 {
+  animation-delay: 1.2s;
+}
+
+.skill-module-header {
+  @apply text-xl font-bold text-white mb-4;
+}
+
+.skill-list {
+  @apply flex flex-wrap justify-center gap-4;
+}
+
+.skill-item {
+  @apply p-2 text-white rounded-lg border border-zinc-700;
+  box-shadow: inset 0 -1px 5px rgba(198, 198, 198, 0.4);
 }
 
 .hero-title {
@@ -121,12 +184,12 @@ canvas {
 }
 
 .hero-container {
-  @apply relative inset-0 flex items-center justify-center pointer-events-none;
+  @apply relative pt-20 inset-0 flex items-center justify-center pointer-events-none;
 }
 
 .hero-content {
   @apply text-center;
-  animation: fadeIn 1.5s ease-in;
+  animation: fadeIn 1.5s ease-in forwards;
 }
 
 th {
