@@ -1,6 +1,6 @@
 <template>
   <MyNavbar />
-  <div class="min-h-[calc(100dvh-44px)]">
+  <div class="mt-[59px] min-h-[calc(100dvh-44px)]">
     <NuxtRouteAnnouncer />
     <NuxtPage />
   </div>

@@ -6,7 +6,7 @@
       <!-- Logo/Brand -->
       <NuxtLink
         to="/"
-        class="text-white font-bold text-lg hover:text-gray-300 transition"
+        class="text-white font-bold text-lg hover:text-gray-300 transition macondo"
       >
         TG
       </NuxtLink>

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative w-full min-h-[calc(100dvh-44px)] overflow-hidden 60pxbg-black"
+    class="relative w-full min-h-[calc(100dvh-44px)] overflow-hidden bg-black"
   >
     <!-- Background canvas for swirls -->
     <canvas ref="canvas" class="absolute inset-0 w-full h-full" />
@@ -8,9 +8,9 @@
     <!-- Content -->
     <div class="hero-container">
       <div class="hero-content">
-        <h1 class="hero-title mb-4">Trevor Gaffney</h1>
+        <h1 class="hero-title mb-4 macondo">Trevor Gaffney</h1>
         <p class="hero-subtitle mb-8">Full Stack Software Engineer</p>
-        <div class="grid grid-cols-5 gap-4 px-10">
+        <div class="skills-row grid grid-cols-5 gap-4 px-10">
           <!-- Front-end -->
           <div class="skill-module col-span-3 skill-module-1">
             <h2 class="skill-module-header">Front-End</h2>
@@ -98,6 +98,10 @@
             </div>
           </div>
         </div>
+        <div class="action-row">
+          <button>Learn more about me</button>
+          <button>View my works</button>
+        </div>
       </div>
     </div>
   </div>
@@ -132,6 +136,20 @@ onMounted(async () => {
   }
 }
 
+@keyframes flashBlue {
+  0%,
+  100% {
+    box-shadow:
+      0 0 10px rgba(255, 165, 0, 0),
+      inset 0 0 10px rgba(0, 144, 151, 0);
+  }
+  50% {
+    box-shadow:
+      0 0 20px rgba(0, 140, 150, 0.8),
+      inset 0 0 20px rgba(140, 150, 0, 0.4);
+  }
+}
+
 canvas {
   animation: fadeIn 5s ease-in forwards;
 }
@@ -163,7 +181,7 @@ canvas {
 }
 
 .skill-module-header {
-  @apply text-xl font-bold text-white mb-4;
+  @apply text-xl font-bold mb-4;
 }
 
 .skill-list {
@@ -171,12 +189,12 @@ canvas {
 }
 
 .skill-item {
-  @apply p-2 text-white rounded-lg border border-zinc-700;
+  @apply p-2 rounded-lg border border-zinc-700;
   box-shadow: inset 0 -1px 5px rgba(198, 198, 198, 0.4);
 }
 
 .hero-title {
-  @apply text-6xl font-bold text-white drop-shadow-lg;
+  @apply text-6xl font-bold drop-shadow-lg;
 }
 
 .hero-subtitle {
@@ -184,7 +202,7 @@ canvas {
 }
 
 .hero-container {
-  @apply relative pt-20 inset-0 flex items-center justify-center pointer-events-none;
+  @apply relative inset-0 flex items-center justify-center pointer-events-none;
 }
 
 .hero-content {
@@ -202,5 +220,15 @@ td {
 
 canvas {
   @apply absolute inset-0 w-full h-full;
+}
+
+.action-row {
+  @apply flex gap-4 justify-center my-8 pointer-events-auto;
+}
+
+.action-row button {
+  @apply px-6 py-3 border border-blue-300 rounded-lg font-medium transition-colors duration-200 hover:bg-blue-500 hover:text-white;
+  animation: flashBlue 0.6s ease-in-out 2;
+  animation-delay: 3s;
 }
 </style>
