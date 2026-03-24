@@ -25,8 +25,8 @@
             </p>
             <p>
               I currently reside in Yokohama, Japan with my wife and my two
-              cats: Chai and Oolong. I am an employee of Ferix Co. Ltd., a
-              Japanese software development company.
+              cats: Chai and Oolong. I am an employee of Ferix Inc., a Japanese
+              software development company.
             </p>
           </div>
           <div class="timeline fade-in-element fade-in-3">
@@ -81,7 +81,7 @@
               </div>
               <div class="timeline-content">
                 <div class="timeline-date">June 2024</div>
-                <h3 class="timeline-title">Joined Ferix Co. Ltd.</h3>
+                <h3 class="timeline-title">Joined Ferix Inc.</h3>
                 <p class="timeline-description">
                   Started as a professional full-stack software engineer
                 </p>

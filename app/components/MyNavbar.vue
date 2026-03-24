@@ -14,6 +14,7 @@
       <!-- Desktop Navigation -->
       <div class="hidden md:flex h-full">
         <NuxtLink to="/about" class="nav-link"> About </NuxtLink>
+        <NuxtLink to="/case-studies" class="nav-link"> Case Studies </NuxtLink>
         <NuxtLink to="/portfolio" class="nav-link"> Portfolio </NuxtLink>
       </div>
 
@@ -66,14 +67,21 @@
       >
         <NuxtLink
           to="/about"
-          class="text-gray-300 hover:text-white transition-colors duration-200 py-2 text-lg"
+          class="hamburger-nav-link"
           @click="isMenuOpen = false"
         >
           About
         </NuxtLink>
         <NuxtLink
+          to="/case-studies"
+          class="hamburger-nav-link"
+          @click="isMenuOpen = false"
+        >
+          Case Studies
+        </NuxtLink>
+        <NuxtLink
           to="/portfolio"
-          class="text-gray-300 hover:text-white transition-colors duration-200 py-2 text-lg"
+          class="hamburger-nav-link"
           @click="isMenuOpen = false"
         >
           Portfolio
@@ -92,6 +100,10 @@ const isMenuOpen = ref(false);
 <style scoped>
 /* Smooth transitions for hamburger menu */
 .nav-link {
-  @apply w-24 h-full px-2 flex justify-center items-center text-gray-300 hover:text-white hover:bg-orange-800 transition-colors duration-300;
+  @apply w-28 h-full px-2 flex justify-center items-center text-gray-300 hover:text-white hover:bg-fuchsia-800 transition-colors duration-300;
+}
+
+.hamburger-nav-link {
+  @apply text-gray-300 hover:text-white transition-colors duration-200 py-2 text-lg;
 }
 </style>

@@ -7,12 +7,12 @@
           href="https://github.com/tgaffer52"
           target="_blank"
           rel="noopener noreferrer"
-          class="hover:text-white transition text-xl"
+          class="hover:text-white transition text-xl h-6"
         >
           <Icon name="uil:github" />
         </a>
         <button
-          class="hover:text-white transition cursor-pointer text-xl"
+          class="hover:text-white transition cursor-pointer text-xl h-6"
           @click="sendEmail"
         >
           <Icon name="uil:envelope" />

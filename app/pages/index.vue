@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative w-full min-h-[calc(100dvh-44px)] overflow-hidden bg-black"
+    class="relative p-10 w-full min-h-[calc(100dvh-44px)] overflow-hidden bg-black"
   >
     <!-- Background canvas for swirls -->
     <canvas ref="canvas" class="absolute inset-0 w-full h-full" />
@@ -10,7 +10,7 @@
       <div class="hero-content">
         <h1 class="hero-title mb-4 macondo">Trevor Gaffney</h1>
         <p class="hero-subtitle mb-8">Full Stack Software Engineer</p>
-        <div class="skills-row grid grid-cols-5 gap-4 px-10">
+        <div class="skills-row grid grid-cols-5 gap-4">
           <!-- Front-end -->
           <div class="skill-module col-span-3 skill-module-1">
             <h2 class="skill-module-header">Front-End</h2>
