@@ -9,7 +9,7 @@
         <!-- pic here -->
         <div class="fade-in-element fade-in-1">
           <img
-            src="@/assets/images/me.jpg"
+            src="@/assets/images/me.webp"
             alt="me"
             class="max-h-screen rounded border border-purple-500 border-2"
           />
