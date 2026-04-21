@@ -93,7 +93,7 @@
     </div>
   </div>
 </template>
-<style>
+<style scoped lang="scss">
 h1 {
   @apply text-4xl font-bold mb-4;
 }
@@ -193,33 +193,5 @@ p {
   );
   background-size: 200% 200%;
   /* animation: oceanFlow 15s ease-in-out infinite; */
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.fade-in-element {
-  animation: fadeInUp 0.8s ease-out forwards;
-  opacity: 0;
-}
-
-.fade-in-1 {
-  animation-delay: 0s;
-}
-
-.fade-in-2 {
-  animation-delay: 0.3s;
-}
-
-.fade-in-3 {
-  animation-delay: 0.6s;
 }
 </style>

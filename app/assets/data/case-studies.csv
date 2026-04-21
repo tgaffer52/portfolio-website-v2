@@ -1,0 +1,94 @@
+title,role,from,to,content,tags
+Support Line App for Expecting and New Mothers ,Engineer,March 2026,Present,"Authored technical specification documents for a CSV import tool and web application designed to securely transfer, verify, and distribute Amazon Gift Cards to LINE App users via DynamoDB.
+Engineered and deployed an automated onboarding flow for a research LINE account, implementing user capacity limits, terms of agreement verification, and dynamic database insertion when users ""friend"" the account.
+Developed and deployed a frontend feature that dynamically generates and displays the user's municipal contact URL based on their ZIP code input.","LINE API
+Vue.js
+TypeScript
+Python
+AWS
+Terraform"
+Automotive Parts Ordering and Management System,Project Leader,January 2026,February 2026,"Led a 3-person engineering team to modernize a legacy automotive parts ordering system, ensuring alignment with client requirements through regular meetings.
+Architected the development infrastructure by provisioning an Amazon EC2 instance and deploying Dockerized containers for a PHP 7 environment.
+Enhanced system security by implementing IP-based access controls for administrative privileges and resolved critical bugs in the legacy cookie-based storage.","PHP
+JavaScript
+AWS
+Docker"
+Electrical Data Visualization App,Engineer,January 2026,February 2026,"Engineered a responsive electrical data visualization web application designed for interactive use by students on iPads and public display in museums.
+Developed a secure weather proxy backend API deployed on Azure Functions to collect third-party weather data without exposing the sensitive API key.
+Managed backend data architecture using MicroCMS, building custom CSV parsing scripts to calculate totals and optimize data for rendering via Recharts.
+Conducted security audits and advised clients on vulnerability mitigation, specifically focusing on DDoS deterrents and secure Azure hosting practices.","React.js
+TypeScript
+Recharts
+TailwindCSS
+MicroCMS
+Azure"
+Service Robot Design Tool,Engineer,January 2026,February 2026,"Designed and implemented interactive data visualizations for service robot task network graphs utilizing Cytoscape and Gephi.
+Developed a drag-and-drop tool to streamline the creation and categorization of robot operational scopes and use cases.","Vue.js
+TypeScript
+Cytoscape
+Gephi
+Docker"
+Robot Telemetry Visualization Tool,Engineer,December 2025,February 2026,"Architected a full-stack Dockerized environment (Vue.js frontend, FastAPI backend, PostgreSQL database, Python scripts) for a robot communication support tool.
+Developed a real-time data monitoring dashboard that visualizes streaming telemetry from nearby robots—including ping, latency, and bandwidth—using dynamic charts and data tables.","Vue.js
+Nuxt.js
+TypeScript
+TailwindCSS
+PostgreSQL
+SQLAlchemy
+FastAPI
+Adminer
+Docker"
+Roll Call Mobile App,Engineer,September 2025,,"Researched and evaluated Google Cloud AI's OCR capabilities for integration into a native Android roll call application that automated scanning and verification of driver's license expiration dates.
+Investigated legacy font rendering and transformation solutions using FontForge.","Android Studio
+Kotlin + Java
+FontForge"
+HR Support Web Application,Engineer,August 2025,September 2025,"Devloped a full-stack custom question creation feature and a dedicated UI to manage the created questions for a human resources support platform.
+Redesigned the existing DynamoDB schema to accommodate complex new data types and user inputs.","Nuxt.js
+Vue.js
+TypeScript 
+AWS
+FastAPI"
+Plastic Model Mold Verification Tool,Engineer,May 2025,August 2025,"Configured a Dockerized full-stack environment to support a web application designed to retrieve, verify, and display CAD-format DXF files.
+Integrated THREE.js with the `dxf-viewer` npm package to engineer a custom visualization tool for rendering user comments and groupings directly onto 3D mold data.","Nuxt.js
+Vue.js
+TypeScript
+JavaScript
+TailwindCSS
+Quasar
+Python
+Docker
+SQLAlchemy
+phpMyAdmin
+OpenAPI"
+CAM Web Application,Engineer / Project Leader,September 2024,August 2025,"Managed a 3-person development team as Project Leader, facilitating task distribution, requirements gathering, and progress reporting for a Computer-Aided Manufacturing (CAM) application designed to analyze and compare sequential versions of 3D manufacturing models.
+Developed comprehensive UI components, including an issue template screen, an interactive dashboard, and a custom filtering and threshold matrix function.
+Researched end-to-end testing in relation to the application, including methods and services that produce end-to-end tests using natural language, and presented the results to the client.","Nuxt.js 
+Vue.js
+TailwindCSS
+Vuetify
+TypeScript
+JavaScript
+Python
+Docker
+SQLAlchemy
+phpMyAdmin
+OpenAPI
+Playwright"
+Cost Estimation Analysis Interface for Exhibition,Event Organizer / Designer / Engineer,October 2024,January 2025,"Orchestrated event logistics and managed promotional materials (flyers, goods, panel displays) to promote Ferix at the Saitama Bizmatch Exhibition.
+Designed the poster promoting the Machine Learning Club.
+Designed and developed an interactive UI that leveraged AI to analyze user cost estimates and provide immediate feedback.","Adobe Illustrator
+Figma
+Canva
+Vue.js
+TypeScript
+Vuetify
+Google Apps Script
+Clasp"
+HR Support Web Application,Engineer,June 2024,August 2024,"Executed comprehensive system testing, managing bug tracking and resolution workflows via GitHub and Redmine.
+Diagnosed and resolved complex UI bugs related to scroll behavior and user input across the application.","Nuxt.js
+Vue.js
+TypeScript
+JavaScript"
+Machine Learning Club Website,Engineer,June 2024,August 2024,"Enhanced website UI/UX by implementing member introduction modals, dynamic hover animations, and robust contact form validation.
+Integrated the MicroCMS API to engineer a dynamic blog filtering system and a secure draft-preview routing feature.","Express.js
+JavaScript"

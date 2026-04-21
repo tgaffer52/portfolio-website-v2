@@ -14,7 +14,7 @@
       <!-- Desktop Navigation -->
       <div class="hidden md:flex h-full">
         <NuxtLink to="/about" class="nav-link"> About </NuxtLink>
-        <NuxtLink to="/case-studies" class="nav-link"> Case Studies </NuxtLink>
+        <NuxtLink to="/case-studies" class="nav-link"> Experience </NuxtLink>
         <NuxtLink to="/portfolio" class="nav-link"> Portfolio </NuxtLink>
       </div>
 
@@ -77,7 +77,7 @@
           class="hamburger-nav-link"
           @click="isMenuOpen = false"
         >
-          Case Studies
+          Experience
         </NuxtLink>
         <NuxtLink
           to="/portfolio"

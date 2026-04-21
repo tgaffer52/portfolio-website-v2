@@ -1,39 +1,77 @@
 <template>
-  <div class="content">
-    <h1>Professional Case Studies</h1>
-    <p>
-      These are projects I have worked on in my professional capacity at Ferix
-      Inc.
-    </p>
-    <h3>
-      Improve and Create Features for a Automotive Parts Stock Order Management
-      System
-    </h3>
-    <div class="tag-list">
-      <span class="tag">PHP</span>
-      <span class="tag">HTML</span>
-      <span class="tag">JavaScript</span>
+  <div>
+    <div class="background-gradient fixed h-screen w-screen z-0"></div>
+    <div class="relative z-10 p-4 md:p-20">
+      <h1 class="fade-in-element fade-in-1">Professional Case Studies</h1>
+      <div
+        v-for="(row, index) in parsedData"
+        :key="index"
+        class="case fade-in-element"
+        :style="`animation-delay: ${(index + 1) * 0.3}s`"
+      >
+        <div class="md:flex w-full justify-between items-end border-b pb-2">
+          <h3>{{ row.title }}</h3>
+          <div class="flex gap-2">
+            <h4 class="timeline">{{ row.from.toUpperCase() }}</h4>
+            <span v-if="row.to" class="flex gap-2">
+              <Icon name="tdesign:swap-right" class="self-center mt-2" />
+              <h4 class="timeline">{{ row.to.toUpperCase() }}</h4>
+            </span>
+          </div>
+        </div>
+        <ul class="list-none p-5">
+          <li
+            v-for="(content, conIndex) in row.content"
+            :key="conIndex"
+            class="list-none flex items-start justify-start text-start gap-2"
+          >
+            <div class="">
+              <Icon name="tdesign:swap-right" />
+            </div>
+            <p class="text-start">
+              {{ content }}
+            </p>
+          </li>
+        </ul>
+        <div class="tag-list mb-10">
+          <span v-for="tag in row.tags" :key="tag" class="tag">{{ tag }} </span>
+        </div>
+      </div>
     </div>
-    <div class="timeline">JANUARY 2026 - FEBRUARY 2026</div>
-    <p>
-      As the project leader, I led a team of 3 on a project to improve the
-      outdated automotive parts ordering system, including adding a feature to
-      save past orders, enhancing the security features by restricting admin
-      priviliges behind designated ip addresses, and fixing various bugs related
-      to the outdated cookie-based data storage features.
-    </p>
-    <p>
-      I solidified requirements, created a project schedule, assigned tasks, and
-      met regularly with the client to ensure creative direction was aligned.
-    </p>
-    <p>
-      I created the environment and infrastructure to view and test the php
-      website, including spinning up an Amazon EC2 instance and dockerized
-      container that supported PHP 7.
-    </p>
   </div>
 </template>
-<style scoped>
+<script setup lang="ts">
+import Papa from "papaparse";
+// 1. Import the CSV as a raw text string using ?raw
+import rawCsv from "~/assets/data/case-studies.csv?raw";
+
+type CaseStudy = {
+  title: string;
+  from: string;
+  to: string;
+  content: string[];
+  tags: string[];
+};
+
+const parsedData = ref([] as CaseStudy[]);
+
+// 2. Parse the string into an array of JavaScript objects
+const result = Papa.parse(rawCsv, {
+  header: true, // Treats the first row as object keys (e.g., row.Title, row.Content)
+  skipEmptyLines: true,
+});
+
+result.data.forEach(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (caseStudy: any) => {
+    caseStudy.content = caseStudy.content.split("\n");
+    caseStudy.tags = caseStudy.tags.split("\n");
+  },
+);
+
+parsedData.value = result.data as CaseStudy[];
+</script>
+<style scoped lang="scss">
 h1 {
   @apply text-4xl font-bold mb-4;
 }
@@ -41,11 +79,14 @@ h2 {
   @apply text-2xl font-semibold mt-8 mb-6;
 }
 h3 {
-  @apply text-xl font-semibold mt-6 mb-2;
+  @apply text-xl font-semibold;
+}
+.timeline {
+  @apply text-lg text-slate-300 mt-2;
 }
 
 p {
-  @apply mb-4;
+  @apply mb-4 whitespace-pre-wrap;
 }
 
 .tag {
@@ -54,5 +95,9 @@ p {
 
 .link {
   @apply text-blue-200 hover:text-blue-400 transition-colors duration-200 mb-4;
+}
+
+.background-gradient {
+  background-image: linear-gradient(to bottom, #5c0e3f, rgb(27, 27, 27));
 }
 </style>

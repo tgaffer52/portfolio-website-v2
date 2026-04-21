@@ -1,7 +1,7 @@
 <template>
   <footer class="w-full bg-zinc-800 py-2 text-center text-gray-400 text-sm">
     <div class="flex w-full justify-between items-center px-4">
-      <p>© 2026 Trevor Gaffney. All rights reserved.</p>
+      <p>© 2026 Trevor Gaffney</p>
       <div class="flex gap-4 justify-center items-center">
         <a
           href="https://github.com/tgaffer52"

@@ -16,12 +16,17 @@
     "@nuxtjs/tailwindcss": "^6.14.0",
     "@primeuix/themes": "^2.0.3",
     "nuxt": "^4.4.2",
+    "papaparse": "^5.5.3",
     "primevue": "^4.5.4",
     "vue": "^3.5.30",
     "vue-router": "^5.0.3"
   },
   "devDependencies": {
+    "@iconify-json/devicon": "^1.2.62",
+    "@iconify-json/skill-icons": "^1.2.4",
+    "@iconify-json/tdesign": "^1.2.14",
     "@iconify-json/uil": "^1.2.3",
+    "@types/papaparse": "^5.5.2",
     "sass-embedded": "^1.98.0"
   }
 }

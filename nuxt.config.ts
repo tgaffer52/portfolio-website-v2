@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   css: ["~/assets/styles/globals.css"],
   icon: {
     serverBundle: {
-      collections: ["uil"], // <!--- this
+      collections: ["uil", "devicon", "tdesign", "skill-icons"],
     },
   },
   modules: ["@nuxtjs/tailwindcss", "@nuxt/eslint", "@nuxt/icon"],
