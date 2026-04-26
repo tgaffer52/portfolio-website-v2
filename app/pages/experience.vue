@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="relative background-gradient z-10 p-4 md:p-20 md:pb-10">
-      <h1 class="fade-in-element fade-in-1">Professional Case Studies</h1>
+      <h1 class="fade-in-element fade-in-1 pb-4">Project Experience</h1>
       <div
         v-for="(row, index) in parsedData"
         :key="index"
@@ -9,7 +9,10 @@
         :style="`animation-delay: ${(index + 1) * 0.3}s`"
       >
         <div class="md:flex w-full justify-between items-end border-b pb-2">
-          <h3>{{ row.title }}</h3>
+          <div>
+            <h4 class="text-neutral-400">{{ row.role }}</h4>
+            <h3>{{ row.title }}</h3>
+          </div>
           <div class="flex gap-2">
             <h4 class="timeline">{{ row.from.toUpperCase() }}</h4>
             <span v-if="row.to" class="flex gap-2">
@@ -42,10 +45,11 @@
 <script setup lang="ts">
 import Papa from "papaparse";
 // 1. Import the CSV as a raw text string using ?raw
-import rawCsv from "~/assets/data/case-studies.csv?raw";
+import rawCsv from "~/assets/data/project-experience.csv?raw";
 
 type CaseStudy = {
   title: string;
+  role: string;
   from: string;
   to: string;
   content: string[];

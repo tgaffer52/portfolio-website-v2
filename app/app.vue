@@ -14,7 +14,7 @@ const transitionName = ref("slide-from-right");
 const router = useRouter();
 
 // 2. Define your spatial page order
-const pageOrder = ["/", "/about", "/case-studies", "/portfolio"];
+const pageOrder = ["/", "/about", "/experience", "/portfolio"];
 
 // 3. Intercept every route change BEFORE it happens
 router.beforeEach((to, from) => {

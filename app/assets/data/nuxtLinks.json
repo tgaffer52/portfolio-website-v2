@@ -1,6 +1,0 @@
-[
-  { "name": "Home", "page": "/" },
-  { "name": "About", "page": "/about" },
-  { "name": "Experience", "page": "/case-studies" },
-  { "name": "Portfolio", "page": "/portfolio" }
-]

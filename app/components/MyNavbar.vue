@@ -13,17 +13,17 @@
 
       <!-- Desktop Navigation -->
       <div ref="navRef" class="relative hidden md:flex h-full">
-        <div class="sliding-indicator" :style="indicatorStyle"></div>
+        <div class="sliding-indicator" :style="indicatorStyle" />
         <NuxtLink to="/about" class="nav-group relative group">
-          <div class="nav-background"></div>
+          <div class="nav-background" />
           <div class="nav-link">About</div>
         </NuxtLink>
-        <NuxtLink to="/case-studies" class="nav-group relative group">
-          <div class="nav-background"></div>
+        <NuxtLink to="/experience" class="nav-group relative group">
+          <div class="nav-background" />
           <div class="nav-link">Experience</div>
         </NuxtLink>
         <NuxtLink to="/portfolio" class="nav-group relative group">
-          <div class="nav-background"></div>
+          <div class="nav-background" />
           <div class="nav-link">Portfolio</div>
         </NuxtLink>
       </div>
@@ -31,8 +31,8 @@
       <!-- Mobile Hamburger Menu -->
       <button
         class="md:hidden flex items-center justify-center w-10 h-10 relative"
-        @click="isMenuOpen = !isMenuOpen"
         aria-label="Toggle menu"
+        @click="isMenuOpen = !isMenuOpen"
       >
         <div class="w-6 flex flex-col gap-1.5">
           <span
@@ -83,7 +83,7 @@
           About
         </NuxtLink>
         <NuxtLink
-          to="/case-studies"
+          to="/experience"
           class="hamburger-nav-link"
           @click="isMenuOpen = false"
         >
