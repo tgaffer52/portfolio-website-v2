@@ -58,7 +58,7 @@ jobs:
 
           ###### Modified Build Configurations ######
           skip_app_build: true # Tells Azure NOT to run its own npm install / build process
-          app_location: "app/dist" # When skipping the build, this MUST point to your compiled output folder
+          app_location: ".output/public" # When skipping the build, this MUST point to your compiled output folder
           api_location: ""
           output_location: "" # When skipping the build, this MUST be left empty
           production_branch: "main"
