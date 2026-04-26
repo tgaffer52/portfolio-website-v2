@@ -2,9 +2,9 @@
   <div class="relative">
     <!-- Background gradient -->
     <div id="bubbleContainer" class="absolute inset-0" />
-    <div class="content relative xl:p-10">
+    <div class="content relative p-2 xl:p-10">
       <h1 class="text-center py-4">Featured Projects</h1>
-      <div class="xl:grid xl:grid-cols-2 gap-12">
+      <div class="flex flex-col gap-y-2 xl:grid xl:grid-cols-2 gap-12">
         <a
           href="https://orange-mushroom-0a61fdc00.7.azurestaticapps.net/"
           target="_blank"

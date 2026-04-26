@@ -5,9 +5,9 @@
 
     <!-- Content -->
     <div class="relative p-10 z-10">
-      <div class="flex gap-x-10">
+      <div class="md:flex gap-x-10">
         <!-- pic here -->
-        <div class="fade-in-element fade-in-1">
+        <div class="fade-in-element fade-in-1 mb-6 md:mb-0">
           <img
             src="@/assets/images/me.webp"
             alt="me"
@@ -119,7 +119,7 @@ p {
 }
 
 .timeline-item {
-  @apply relative mb-8 pl-28 flex items-start;
+  @apply relative mb-8 pl-10 md:pl-28 flex items-start;
   animation: slideIn 0.6s ease-out forwards;
   opacity: 0;
 
@@ -137,12 +137,18 @@ p {
   }
 
   &:has(.timeline-content:hover) .timeline-marker {
-    transform: translateX(40px);
+    @media (min-width: 768px) {
+      transform: translateX(40px);
+    }
+    @media (max-width: 767px) {
+      transform: translateX(3px);
+    }
   }
 }
 
 .timeline-marker {
   @apply absolute left-0 w-16 h-16 bg-black border-4 border-purple-500 rounded-full flex items-center justify-center shadow-lg transition-transform duration-300;
+
   transform: translateX(-19px);
 
   .timeline-icon {

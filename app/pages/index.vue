@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative p-10 w-full min-h-[calc(100dvh-44px)] overflow-hidden bg-black"
+    class="relative p-10 w-full min-h-[calc(100dvh-99px)] overflow-hidden bg-black"
   >
     <!-- Background canvas for swirls -->
     <canvas ref="fluidCanvas" class="absolute inset-0 w-full h-full" />
@@ -8,7 +8,7 @@
     <!-- Content -->
     <div class="hero-container">
       <div
-        class="fixed w-screen top-[120px] macondo text-[20rem] text-amber-400/10 text-center"
+        class="fixed w-screen top-[120px] macondo text-[20rem] text-amber-400/5 text-center"
       >
         TG
       </div>
@@ -22,9 +22,9 @@
           <button>Experience</button>
           <button>Portfolio</button>
         </div> -->
-        <div class="skills-row grid grid-cols-12 gap-4">
+        <div class="skills-row flex flex-col gap-y-4 md:grid grid-cols-6 gap-4">
           <!-- Front-end -->
-          <div class="skill-module col-span-6 skill-module-1">
+          <div class="skill-module col-span-3 skill-module-1">
             <h2 class="skill-module-header">Front-End</h2>
             <div class="skill-list">
               <div class="skill-item">
@@ -50,7 +50,7 @@
             </div>
           </div>
           <!-- Back-end -->
-          <div class="skill-module col-span-6 skill-module-2">
+          <div class="skill-module col-span-3 skill-module-2">
             <h2 class="skill-module-header">Back-End</h2>
             <div class="skill-list">
               <div class="skill-item">
@@ -72,7 +72,7 @@
             </div>
           </div>
           <!-- Design -->
-          <div class="skill-module col-span-4 skill-module-3">
+          <div class="skill-module col-span-2 skill-module-3">
             <h2 class="skill-module-header">Design</h2>
             <div class="skill-list">
               <div class="skill-item">
@@ -86,7 +86,7 @@
             </div>
           </div>
           <!-- Database -->
-          <div class="skill-module col-span-4 skill-module-4">
+          <div class="skill-module col-span-2 skill-module-4">
             <h2 class="skill-module-header">Database</h2>
             <div class="skill-list">
               <div class="skill-item">
@@ -100,7 +100,7 @@
             </div>
           </div>
           <!-- Cloud -->
-          <div class="skill-module col-span-4 skill-module-5">
+          <div class="skill-module col-span-2 skill-module-5">
             <h2 class="skill-module-header">Cloud</h2>
             <div class="skill-list">
               <div class="skill-item">

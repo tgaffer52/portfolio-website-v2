@@ -1,6 +1,6 @@
 <template>
   <MyNavbar />
-  <div class="mt-[59px] min-h-[calc(100dvh-44px)]">
+  <div class="mt-[59px] min-h-[calc(100dvh-99px)]">
     <NuxtRouteAnnouncer />
     <NuxtPage :transition="{ name: transitionName, mode: 'out-in' }" />
   </div>

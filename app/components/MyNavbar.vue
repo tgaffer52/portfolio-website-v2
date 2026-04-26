@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="fixed top-0 w-full h-[60px] bg-zinc-950/95 backdrop-blur border-b border-zinc-800 z-50"
+    class="fixed top-0 w-screen h-[60px] bg-zinc-950/95 backdrop-blur border-b border-zinc-800 z-50"
   >
     <div class="px-4 h-full flex items-center justify-between">
       <!-- Logo/Brand -->
@@ -60,7 +60,7 @@
     >
       <div
         v-if="isMenuOpen"
-        class="fixed inset-0 bg-black/50 backdrop-blur z-40 md:hidden"
+        class="fixed inset-0 bg-black/50 z-40 md:hidden"
         @click="isMenuOpen = false"
       />
     </transition>
@@ -73,7 +73,7 @@
     >
       <div
         v-if="isMenuOpen"
-        class="fixed top-[60px] right-0 w-64 h-[calc(100vh-60px)] bg-black/95 backdrop-blur border-l border-zinc-800 z-40 md:hidden flex flex-col p-6 gap-4"
+        class="fixed top-[60px] right-0 w-32 bg-zinc-950/95 backdrop-blur border-l border-zinc-800 z-40 md:hidden flex flex-col"
       >
         <NuxtLink
           to="/about"
@@ -103,9 +103,11 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import { useWindowSize } from "@vueuse/core";
 
 const isMenuOpen = ref(false);
 const route = useRoute();
+const { width, height } = useWindowSize();
 const navRef: Ref<HTMLDivElement | null> = ref(null);
 
 // State to hold the position and width of the slider
@@ -125,7 +127,6 @@ const updateIndicator = () => {
   );
 
   if (activeLink) {
-    console.log(activeLink);
     indicatorStyle.value = {
       left: `${activeLink.offsetLeft}px`,
       width: `${activeLink.offsetWidth}px`,
@@ -139,6 +140,7 @@ const updateIndicator = () => {
 
 // 1. Run once the component mounts
 onMounted(() => {
+  if (width.value < 768) return; // Skip on mobile to avoid unnecessary calculations
   // nextTick ensures the fonts/DOM have finished rendering before we measure
   nextTick(() => {
     updateIndicator();
@@ -172,7 +174,17 @@ watch(
 }
 
 .hamburger-nav-link {
-  @apply text-gray-300 hover:text-white transition-colors duration-200 py-2 text-lg;
+  @apply text-gray-300 hover:text-white transition-colors duration-200 p-4 text-lg;
+  &.router-link-active {
+    background: radial-gradient(
+      circle,
+      rgba(52, 211, 153, 0) 0%,
+      rgba(52, 211, 153, 0.1) 90%
+    );
+  }
+  &:active {
+    @apply bg-emerald-600/10;
+  }
 }
 
 .sliding-indicator {
