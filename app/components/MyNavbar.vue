@@ -12,10 +12,20 @@
       </NuxtLink>
 
       <!-- Desktop Navigation -->
-      <div class="hidden md:flex h-full">
-        <NuxtLink to="/about" class="nav-link"> About </NuxtLink>
-        <NuxtLink to="/case-studies" class="nav-link"> Experience </NuxtLink>
-        <NuxtLink to="/portfolio" class="nav-link"> Portfolio </NuxtLink>
+      <div ref="navRef" class="relative hidden md:flex h-full">
+        <div class="sliding-indicator" :style="indicatorStyle"></div>
+        <NuxtLink to="/about" class="nav-group relative group">
+          <div class="nav-background"></div>
+          <div class="nav-link">About</div>
+        </NuxtLink>
+        <NuxtLink to="/case-studies" class="nav-group relative group">
+          <div class="nav-background"></div>
+          <div class="nav-link">Experience</div>
+        </NuxtLink>
+        <NuxtLink to="/portfolio" class="nav-group relative group">
+          <div class="nav-background"></div>
+          <div class="nav-link">Portfolio</div>
+        </NuxtLink>
       </div>
 
       <!-- Mobile Hamburger Menu -->
@@ -95,18 +105,92 @@
 import { ref } from "vue";
 
 const isMenuOpen = ref(false);
+const route = useRoute();
+const navRef: Ref<HTMLDivElement | null> = ref(null);
+
+// State to hold the position and width of the slider
+const indicatorStyle = ref({
+  left: "0px",
+  width: "0px",
+  opacity: 0, // Starts hidden to prevent jumping on first load
+});
+
+// The function that calculates where the slider should go
+const updateIndicator = () => {
+  if (!navRef.value) return;
+
+  // Nuxt automatically adds the 'router-link-active' class to the current page's link
+  const activeLink: HTMLDivElement | null = navRef.value.querySelector(
+    ".router-link-active",
+  );
+
+  if (activeLink) {
+    console.log(activeLink);
+    indicatorStyle.value = {
+      left: `${activeLink.offsetLeft}px`,
+      width: `${activeLink.offsetWidth}px`,
+      opacity: 1,
+    };
+  } else {
+    // If no active link (e.g., on a non-nav page), hide the indicator
+    indicatorStyle.value.opacity = 0;
+  }
+};
+
+// 1. Run once the component mounts
+onMounted(() => {
+  // nextTick ensures the fonts/DOM have finished rendering before we measure
+  nextTick(() => {
+    updateIndicator();
+
+    // Optional but recommended: Recalculate if the user resizes their browser window
+    window.addEventListener("resize", updateIndicator);
+  });
+});
+
+// 2. Run every time the page route changes
+watch(
+  () => route.path,
+  () => {
+    nextTick(updateIndicator);
+  },
+);
 </script>
 
 <style scoped lang="scss">
-/* Smooth transitions for hamburger menu */
 .nav-link {
-  @apply w-28 h-full px-2 flex justify-center items-center text-gray-300 hover:text-white hover:bg-green-700 transition-colors duration-300;
-  &:hover {
-    @apply bg-emerald-800;
-  }
+  @apply w-28 h-full px-2 flex justify-center items-center text-gray-300 group-hover:text-white transition-all duration-300;
+}
+
+.nav-background {
+  @apply absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100;
+  background: radial-gradient(
+    circle,
+    rgba(52, 211, 153, 0.1) 0%,
+    rgba(52, 211, 153, 0) 90%
+  );
 }
 
 .hamburger-nav-link {
   @apply text-gray-300 hover:text-white transition-colors duration-200 py-2 text-lg;
+}
+
+.sliding-indicator {
+  position: absolute;
+  top: 0; /* Matches the padding of the nav-container */
+  bottom: 0;
+  z-index: 0; /* Keeps it behind the text */
+
+  /* The smooth slide animation */
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+
+  /* Your requested visuals: Box Shadow & Filter */
+  background: radial-gradient(
+    circle,
+    rgba(52, 211, 153, 0) 0%,
+    rgba(52, 211, 153, 0.1) 90%
+  );
+  backdrop-filter: blur(8px); /* The frosted glass filter effect */
+  box-shadow: 0 8px 6px -6px rgba(52, 211, 153, 0.5);
 }
 </style>
