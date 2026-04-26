@@ -19,12 +19,12 @@ html * {
 #bubbleContainer {
   z-index: 0;
   overflow: hidden;
-  position: fixed;
+  position: absolute;
   height: 100%;
   width: 100%;
 }
 #bubbleContainer div {
-  position: fixed;
+  position: relative;
   z-index: -1;
   border-radius: 1000px;
 }

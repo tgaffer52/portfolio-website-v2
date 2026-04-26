@@ -6,7 +6,7 @@
       <!-- Logo/Brand -->
       <NuxtLink
         to="/"
-        class="text-white font-bold text-lg hover:text-gray-300 transition macondo"
+        class="text-emerald-600 font-bold text-lg hover:text-emerald-300 transition macondo"
       >
         TG
       </NuxtLink>
@@ -97,10 +97,13 @@ import { ref } from "vue";
 const isMenuOpen = ref(false);
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 /* Smooth transitions for hamburger menu */
 .nav-link {
-  @apply w-28 h-full px-2 flex justify-center items-center text-gray-300 hover:text-white hover:bg-fuchsia-800 transition-colors duration-300;
+  @apply w-28 h-full px-2 flex justify-center items-center text-gray-300 hover:text-white hover:bg-green-700 transition-colors duration-300;
+  &:hover {
+    @apply bg-emerald-800;
+  }
 }
 
 .hamburger-nav-link {

@@ -18,10 +18,9 @@
           <div class="fade-in-element fade-in-2">
             <h1>About Me</h1>
             <p>
-              Hello! My name is Trevor Gaffney. I am a bilingual professional
-              software engineer with over two years of experience in both
-              front-end and back-end web development as well as web design,
-              database creation and management, and cloud architecture.
+              I am a bilingual professional software engineer with over two
+              years of experience in both front-end and back-end web development
+              as well as web design, database creation, and cloud architecture.
             </p>
             <p>
               I currently reside in Yokohama, Japan with my wife and my two

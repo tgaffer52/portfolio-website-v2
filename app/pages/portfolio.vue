@@ -68,13 +68,23 @@
 <script setup lang="ts">
 import "~/assets/styles/movingbubbles.css";
 
+// Create a variable to hold the stop command
+let stopBubbles: (() => void) | null = null;
+
 onMounted(async () => {
   // Import the fluid simulation
   const { default: initBubbles } = await import("~/utils/movingbubbles.js");
 
-  // Initialize it (the library expects to find a canvas element)
+  // Initialize it AND save the cleanup function it returns
   // @ts-expect-error This expression is not callable, but it is.
-  initBubbles();
+  stopBubbles = initBubbles();
+});
+
+onBeforeUnmount(() => {
+  // When the user leaves the page, tell the JS file to stop running
+  if (stopBubbles) {
+    stopBubbles();
+  }
 });
 </script>
 <style scoped lang="scss">

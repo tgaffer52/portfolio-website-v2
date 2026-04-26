@@ -1,7 +1,6 @@
 <template>
   <div>
-    <div class="background-gradient fixed h-screen w-screen z-0"></div>
-    <div class="relative z-10 p-4 md:p-20">
+    <div class="relative background-gradient z-10 p-4 md:p-20 md:pb-10">
       <h1 class="fade-in-element fade-in-1">Professional Case Studies</h1>
       <div
         v-for="(row, index) in parsedData"
@@ -98,6 +97,12 @@ p {
 }
 
 .background-gradient {
-  background-image: linear-gradient(to bottom, #5c0e3f, rgb(27, 27, 27));
+  background: radial-gradient(
+    circle at 40% 60%,
+    rgba(102, 11, 85, 0.6) 0%,
+    rgba(49, 5, 43, 0.5) 50%,
+    rgba(5, 2, 23, 0.95) 100%
+  );
+  background-size: 200% 200%;
 }
 </style>
