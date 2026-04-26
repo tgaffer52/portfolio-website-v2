@@ -2,13 +2,14 @@
   <div class="relative">
     <!-- Background gradient -->
     <div id="bubbleContainer" class="absolute inset-0" />
-    <div class="content relative p-2 xl:p-10">
+    <div class="content relative p-2 md:p-10">
       <h1 class="text-center py-4">Featured Projects</h1>
-      <div class="flex flex-col gap-y-2 xl:grid xl:grid-cols-2 gap-12">
+      <div class="flex flex-col lg:flex-row gap-y-2 md:gap-y-10 gap-12">
         <a
           href="https://orange-mushroom-0a61fdc00.7.azurestaticapps.net/"
           target="_blank"
           rel="noopener noreferrer"
+          class="lg:w-1/2"
         >
           <div class="project-module">
             <h3 class="text-center">Koke Investigations</h3>
@@ -20,7 +21,7 @@
 
             <div class="timeline">NOVEMBER 2025 - PRESENT</div>
 
-            <p>
+            <p class="flex-grow">
               This is a personal side project that serves as a creative writing
               outlet. It's a collection of "case log" posts from a fictional
               ghost whisperer. Hosted on Azure Static Web Apps.
@@ -38,6 +39,7 @@
           href="https://dariusebrahimi.com"
           target="_blank"
           rel="noopener noreferrer"
+          class="lg:w-1/2"
         >
           <div class="project-module">
             <h3 class="text-center">Darius Ebrahimi Official Site</h3>
@@ -49,11 +51,11 @@
 
             <div class="timeline">OCTOBER 2023 - PRESENT</div>
 
-            <p>
+            <p class="flex-grow">
               I designed, created, and maintain the official website for author
               Darius Ebrahimi. Hosted on Netlify with custom domain integration.
             </p>
-            <br />
+
             <div class="tag-list">
               <span class="tag">React.js</span>
               <span class="tag">TypeScript</span>
@@ -105,7 +107,7 @@ p {
 }
 
 .project-module {
-  @apply px-8 py-4 bg-teal-800/10 rounded-xl hover:bg-teal-800 transition-colors duration-1000;
+  @apply h-full flex flex-col px-8 py-4 bg-teal-800/10 rounded-xl hover:bg-teal-800 transition-colors duration-1000;
 
   &:hover .project-img {
     @apply border-white/50;
