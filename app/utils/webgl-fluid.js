@@ -1432,13 +1432,23 @@ export default function initFluid(canvas, userConfig) {
     return radius;
   }
 
+  // === 1. Add this new helper function ===
+  // This calculates the exact distance of the touch relative to the canvas's actual position
+  function getCanvasCoords(eventOrTouch) {
+    const rect = canvas.getBoundingClientRect();
+    return {
+      x: scaleByPixelRatio(eventOrTouch.clientX - rect.left),
+      y: scaleByPixelRatio(eventOrTouch.clientY - rect.top),
+    };
+  }
+
   // === NAMED EVENT HANDLERS (Required for cleanup) ===
   const onMouseMove = (e) => {
     let pointer = pointers[0];
-    let posX = scaleByPixelRatio(e.offsetX);
-    let posY = scaleByPixelRatio(e.offsetY);
-    if (!pointer.down) updatePointerDownData(pointer, -1, posX, posY);
-    updatePointerMoveData(pointer, posX, posY);
+    let pos = getCanvasCoords(e); // Use the new math!
+
+    if (!pointer.down) updatePointerDownData(pointer, -1, pos.x, pos.y);
+    updatePointerMoveData(pointer, pos.x, pos.y);
   };
 
   const onMouseUp = () => {
@@ -1446,26 +1456,28 @@ export default function initFluid(canvas, userConfig) {
   };
 
   const onTouchStart = (e) => {
-    e.preventDefault();
-    const touches = e.targetTouches;
+    // Changed to e.touches since we are listening on the global window now
+    const touches = e.touches;
     while (touches.length >= pointers.length)
       pointers.push(new pointerPrototype());
     for (let i = 0; i < touches.length; i++) {
-      let posX = scaleByPixelRatio(touches[i].pageX);
-      let posY = scaleByPixelRatio(touches[i].pageY);
-      updatePointerDownData(pointers[i + 1], touches[i].identifier, posX, posY);
+      let pos = getCanvasCoords(touches[i]); // Use the new math!
+      updatePointerDownData(
+        pointers[i + 1],
+        touches[i].identifier,
+        pos.x,
+        pos.y,
+      );
     }
   };
 
   const onTouchMove = (e) => {
-    e.preventDefault();
-    const touches = e.targetTouches;
+    const touches = e.touches;
     for (let i = 0; i < touches.length; i++) {
       let pointer = pointers[i + 1];
       if (!pointer.down) continue;
-      let posX = scaleByPixelRatio(touches[i].pageX);
-      let posY = scaleByPixelRatio(touches[i].pageY);
-      updatePointerMoveData(pointer, posX, posY);
+      let pos = getCanvasCoords(touches[i]); // Use the new math!
+      updatePointerMoveData(pointer, pos.x, pos.y);
     }
   };
 
@@ -1483,10 +1495,13 @@ export default function initFluid(canvas, userConfig) {
     if (e.key === " ") splatStack.push(parseInt(Math.random() * 20) + 5);
   };
 
-  canvas.addEventListener("mousemove", onMouseMove);
+  // canvas.addEventListener("mousemove", onMouseMove);
+  // canvas.addEventListener("touchstart", onTouchStart, { passive: false });
+  // canvas.addEventListener("touchmove", onTouchMove, { passive: false });
+  window.addEventListener("mousemove", onMouseMove);
+  window.addEventListener("touchstart", onTouchStart, { passive: true });
+  window.addEventListener("touchmove", onTouchMove, { passive: true });
   window.addEventListener("mouseup", onMouseUp);
-  canvas.addEventListener("touchstart", onTouchStart, { passive: false });
-  canvas.addEventListener("touchmove", onTouchMove, { passive: false });
   window.addEventListener("touchend", onTouchEnd);
   window.addEventListener("keydown", onKeyDown);
 
@@ -1602,15 +1617,14 @@ export default function initFluid(canvas, userConfig) {
   return function destroy() {
     cancelAnimationFrame(animationFrameId);
 
-    // Remove event listeners
-    canvas.removeEventListener("mousemove", onMouseMove);
+    // Update these to match the window!
+    window.removeEventListener("mousemove", onMouseMove);
     window.removeEventListener("mouseup", onMouseUp);
-    canvas.removeEventListener("touchstart", onTouchStart);
-    canvas.removeEventListener("touchmove", onTouchMove);
+    window.removeEventListener("touchstart", onTouchStart);
+    window.removeEventListener("touchmove", onTouchMove);
     window.removeEventListener("touchend", onTouchEnd);
     window.removeEventListener("keydown", onKeyDown);
 
-    // Force WebGL to dump memory
     const extLoseContext = gl.getExtension("WEBGL_lose_context");
     if (extLoseContext) extLoseContext.loseContext();
   };
